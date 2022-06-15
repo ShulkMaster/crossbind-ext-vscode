@@ -10,14 +10,26 @@
 		},
 		{
 			"include": "#comments"
-		}	
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#reserved-styles-props"
+		}
 	],
 	"repository": {
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.haibt",
-				"match": "\\b(if|while|for|return|component|extends|from|import)\\b"
-			}]
+			"patterns": [
+				{
+					"name": "keyword.control.haibt",
+					"match": "\\b(if|while|for|return|component|extends|variant)\\b"
+				},
+				{
+					"name": "keyword.control.import.haibt",
+					"match": "\\b(from|import)\\b"
+				}
+			]
 		},
 		"strings": {
 			"name": "string.quoted.double.haibt",
@@ -35,14 +47,26 @@
 				{
 					"begin": "/\\*",
 					"end": "\\*/",
-					"name": "comment.block.hbt"
+					"name": "comment.block.haibt"
 				},
 				{
 					"begin": "//",
 					"end": "\\n",
-					"name": "comment.line.double-slash.hbt"
+					"name": "comment.line.double-slash.haibt"
 				}
 			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "keyword.other.unit.suffix.integer.haibt",
+					"match": "(^-?[0-9][0-9\\.]+$)"
+				}
+			]
+		},
+		"reserved-styles-props": {
+			"name": "entity.other.attribute-name.haibt",
+			"match": "\\b(backgroundColor|border|margin|padding)\\b"
 		}
 	},
 	"scopeName": "source.haibt"
