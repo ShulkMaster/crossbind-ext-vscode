@@ -1,0 +1,78 @@
+{
+    "name": "hbt",
+    "displayName": "Haibt",
+    "description": "Haibt translation unit",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.68.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "activationEvents": [
+		"onLanguage:haibt"
+	],
+    "main": "./out/extension",
+    "contributes": {
+        "languages": [
+            {
+                "id": "haibt",
+                "aliases": [
+                    "Haibt",
+                    "haibt"
+                ],
+                "extensions": [
+                    ".hbt",
+                    ".hb",
+                    ".hbp"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "haibt",
+                "scopeName": "source.haibt",
+                "path": "./syntaxes/haibt.tmLanguage.json"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Example configuration",
+            "properties": {
+                "HaibtSL.maxNumberOfProblems": {
+                    "scope": "resource",
+                    "type": "number",
+                    "default": 100,
+                    "description": "Controls the maximum number of problems produced by the server."
+                },
+                "HaibtSL.trace.server": {
+                    "scope": "window",
+                    "type": "string",
+                    "enum": [
+                        "off",
+                        "messages",
+                        "verbose"
+                    ],
+                    "default": "verbose",
+                    "description": "Traces the communication between VS Code and the language server."
+                }
+            }
+        }
+    },
+    "scripts": {
+        "compile": "tsc -p ./"
+    },
+    "devDependencies": {
+        "@types/node": "^17.0.41",
+        "@types/vscode": "^1.68.0",
+        "@typescript-eslint/eslint-plugin": "^5.27.1",
+        "@typescript-eslint/parser": "^5.27.1",
+        "@vscode/test-electron": "^2.1.3",
+        "eslint": "^8.17.0",
+        "typescript": "^4.7.2"
+    },
+    "dependencies": {
+        "vscode-languageclient": "^8.0.1"
+    }
+}
