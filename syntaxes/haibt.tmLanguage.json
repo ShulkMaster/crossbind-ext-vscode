@@ -7,13 +7,16 @@
 		},
 		{
 			"include": "#strings"
-		}
+		},
+		{
+			"include": "#comments"
+		}	
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.haibt",
-				"match": "\\b(if|while|for|return|component|extends)\\b"
+				"match": "\\b(if|while|for|return|component|extends|from|import)\\b"
 			}]
 		},
 		"strings": {
@@ -24,6 +27,20 @@
 				{
 					"name": "constant.character.escape.haibt",
 					"match": "\\\\."
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"begin": "/\\*",
+					"end": "\\*/",
+					"name": "comment.block.hbt"
+				},
+				{
+					"begin": "//",
+					"end": "\\n",
+					"name": "comment.line.double-slash.hbt"
 				}
 			]
 		}
