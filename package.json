@@ -21,11 +21,7 @@
                     "Haibt",
                     "haibt"
                 ],
-                "extensions": [
-                    ".hbt",
-                    ".hb",
-                    ".hbp"
-                ],
+                "extensions": [".hbt"],
                 "configuration": "./language-configuration.json"
             }
         ],
