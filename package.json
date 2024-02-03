@@ -10,18 +10,24 @@
         "Programming Languages"
     ],
     "activationEvents": [
-		"onLanguage:haibt"
-	],
+        "onLanguage:haibt"
+    ],
     "main": "./out/extension",
     "contributes": {
         "languages": [
             {
                 "id": "haibt",
+                "icon": {
+                    "light": "./assets/hlogo.svg",
+                    "dark": "./assets/hlogo.svg"
+                },
                 "aliases": [
                     "Haibt",
                     "haibt"
                 ],
-                "extensions": [".hbt"],
+                "extensions": [
+                    ".hbt"
+                ],
                 "configuration": "./language-configuration.json"
             }
         ],
