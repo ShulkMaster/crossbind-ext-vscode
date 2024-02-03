@@ -26,4 +26,18 @@
         "increaseIndentPattern": ".*\\{$|.*\\($|<[^/>]*>$",
         "decreaseIndentPattern": ".*\\}$|.*\\)$|</[^>]*>$"
     },
+    "colorizedBracketPairs": [
+        [
+            "(",
+            ")"
+        ],
+        [
+            "[",
+            "]"
+        ],
+        [
+            "{",
+            "}"
+        ]
+    ]
 }

@@ -9,25 +9,95 @@
 			"include": "#strings"
 		},
 		{
-			"include": "#comments"
-		},
-		{
 			"include": "#numbers"
 		},
 		{
 			"include": "#reserved-styles-props"
-		}
+		},
+		{
+			"begin": "<([a-zA-Z]+[0-9]*)",
+			"beginCaptures": {
+				"1": {
+					"name": "entity.name.tag.html"
+				}
+			},
+			"end": ">",
+			"patterns": [
+				{
+					"include": "#attributes"
+				},
+        {
+          "include": "#jsx-interpolation"
+        }
+			]
+		},
+		{
+			"match": "</([a-zA-Z]+[0-9]*)>",
+			"captures": {
+				"1": {
+					"name": "entity.name.tag.html"
+				}
+			}
+		},
+    {
+      "patterns": [
+        {
+          "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b",
+          "name": "variable.other"
+        }
+      ]
+    }
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [
 				{
+					"name": "constant.language.haibt",
+					"match": "\\bvoid\\b"
+				},
+				{
+					"name": "constant.numeric",
+					"match": "\\b(\\d+(\\.\\d+)?)\\b"
+				},
+				{
+					"name": "constant.language.boolean.haibt",
+					"match": "\\b(true|false)\\b"
+				},
+				{
+					"name": "constant.other.haibt",
+					"match": "\\bundefined\\b"
+				},
+				{
 					"name": "keyword.control.haibt",
-					"match": "\\b(if|while|for|return|component|extends|variant)\\b"
+					"match": "\\b(template|as|if|else|prop|val|var)\\b"
+				},
+				{
+					"name": "keyword.declaration.haibt",
+					"match": "\\b(style|type)\\b"
+				},
+				{
+					"name": "entity.name.type.class",
+					"match": "\\bcomponent\\b"
+				},
+				{
+					"name": "keyword.type.haibt",
+					"match": "\\b(string|number|boolean)\\b"
+				},
+				{
+					"name": "keyword.other.unit.haibt",
+					"match": "\\b\\d*(\\.\\d+)?(em|rem|px|%)\\b"
+				},
+				{
+					"name": "keyword.other.unit.haibt",
+					"match": "\\b(em|rem|px|%)\\b"
 				},
 				{
 					"name": "keyword.control.import.haibt",
-					"match": "\\b(from|import)\\b"
+					"match": "\\buse\\b"
+				},
+				{
+					"name": "keyword.operator.haibt",
+					"match": "\\b(\\+|\\-|\\*|\\/|\\%|\\=|\\!|\\&|\\||\\^|\\<|\\>|\\?|\\:|\\.)\\b"
 				}
 			]
 		},
@@ -42,20 +112,26 @@
 				}
 			]
 		},
-		"comments": {
-			"patterns": [
-				{
-					"begin": "/\\*",
-					"end": "\\*/",
-					"name": "comment.block.haibt"
-				},
-				{
-					"begin": "//",
-					"end": "\\n",
-					"name": "comment.line.double-slash.haibt"
-				}
-			]
-		},
+    "attributes": {
+      "patterns": [
+        {
+          "match": "\\b([a-zA-Z-:]+)\\s*(=)\\s*\"([^\"]*)\"",
+          "captures": {
+            "1": { "name": "entity.other.attribute-name" },
+            "2": { "name": "punctuation.separator.key-value" },
+            "3": { "name": "string.quoted.double" }
+          }
+        }
+      ]
+    },
+    "jsx-interpolation": {
+      "patterns": [
+        {
+          "match": "\\{[^}]+\\}",
+          "name": "variable.other"
+        }
+      ]
+    },
 		"numbers": {
 			"patterns": [
 				{
